@@ -2,3 +2,5 @@
 !/tmp/.keep
 .idea/
 node_modules/
+dist/
+!dist/.keep

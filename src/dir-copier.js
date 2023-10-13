@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 function dirCopier(src, dest, callbackCurrentFile) {
+  src = path.normalize(src.trim());
+  dest = path.normalize(dest.trim());
+
   if (!fs.existsSync(src)) {
     throw new Error('Source directory does not exist.');
   }
@@ -14,8 +17,9 @@ function dirCopier(src, dest, callbackCurrentFile) {
   items.forEach(item => {
     const srcPath = path.join(src, item);
     const destPath = path.join(dest, item);
-    callbackCurrentFile(srcPath);
-    console.log(srcPath);
+    if(callbackCurrentFile){
+      callbackCurrentFile(srcPath);
+    }
 
     const stat = fs.statSync(srcPath);
     if (stat.isDirectory()) {
