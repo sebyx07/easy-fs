@@ -1,0 +1,14 @@
+{
+  "license": "private",
+  "name": "easy-fs",
+  "main": "main.js",
+  "dependencies": {
+    "chai": "^4.3.10",
+    "electron": "^27.0.0",
+    "mocha": "^10.2.0"
+  },
+  "scripts": {
+    "test": "mocha test/",
+    "start": "electron ."
+  }
+}
